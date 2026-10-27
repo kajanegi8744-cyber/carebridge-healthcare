@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appointment Request Confirmation | CareBridge Healthcare</title>
-  <meta name="description" content="Confirmation page for the CareBridge Healthcare appointment form practice flow.">
+  <meta name="description" content="Confirmation page for the CareBridge Healthcare practice form.">
 
   <!-- Google Tag Manager -->
   <script>
@@ -17,7 +17,7 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -45,25 +45,36 @@
       <div class="container">
         <div class="confirmation-card">
           <div class="confirmation-icon" aria-hidden="true">✓</div>
-          <p class="eyebrow">FORM SUBMISSION COMPLETE</p>
+          <p class="eyebrow">FORM VALIDATION COMPLETE</p>
           <h1>Thank You!</h1>
+
           <p>
-            Your practice form passed the browser validation and
-            the confirmation page has opened successfully.
+            Your practice appointment form passed browser validation,
+            and the confirmation page opened successfully.
           </p>
+
           <p>
-            This is a website training flow. No real appointment
-            has been booked and no form data has been saved.
+            This is a training website. No real appointment has
+            been booked and no form information has been saved.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="index.html"
+            <a class="btn btn-primary"
+               href="index.html"
                data-track="confirmation_home_click">
               Back to Home
             </a>
-            <a class="btn btn-secondary" href="services.html"
+
+            <a class="btn btn-secondary"
+               href="services.html"
                data-track="confirmation_services_click">
               Explore Services
+            </a>
+
+            <a class="btn btn-secondary"
+               href="appointment.html"
+               data-track="confirmation_retry_click">
+              Try Form Again
             </a>
           </div>
         </div>
@@ -84,6 +95,7 @@
       event: 'appointment_confirmation_view'
     });
   </script>
-  <script src="assets/site.js"></script>
+
+  <script src="site.js"></script>
 </body>
 </html>
