@@ -47,8 +47,8 @@
           <p class="eyebrow">GET IN TOUCH</p>
           <h1>How Can We Help?</h1>
           <p>
-            Use this practice form to explore how a website enquiry
-            form can validate information and open a confirmation page.
+            Use this practice form to explore form validation
+            and the confirmation page journey.
           </p>
         </div>
       </div>
@@ -61,8 +61,7 @@
           <p>Fields marked with * are required.</p>
         </div>
 
-        <form id="contact-form" class="contact-form"
-              action="thank-you.html" method="get">
+        <form id="contact-form" class="contact-form">
 
           <div class="form-group">
             <label for="contact-name">Full name *</label>
@@ -109,12 +108,12 @@
               maxlength="500"
               rows="5"
               required
-              placeholder="Enter a general enquiry. Do not include medical or sensitive personal information."></textarea>
+              placeholder="Enter a general enquiry only. Do not include medical or sensitive personal information."></textarea>
           </div>
 
           <p class="form-notice">
-            This is a practice form. It validates your entries and
-            demonstrates navigation only. It does not send or store
+            This is a practice form. It checks your entries and
+            demonstrates navigation only. It does not send or save
             an actual enquiry.
           </p>
 
@@ -142,19 +141,23 @@
       var error = document.getElementById('contact-error');
 
       form.addEventListener('submit', function (event) {
+        // Prevent form data from being added to the URL.
+        event.preventDefault();
         error.textContent = '';
 
         if (!form.checkValidity()) {
-          event.preventDefault();
           form.reportValidity();
           return;
         }
 
-        // Practice event only. Do not pass form values to analytics.
+        // Send only a generic event to the GTM data layer.
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'contact_form_validated'
         });
+
+        // Practice flow only; no enquiry is actually sent or saved.
+        window.location.href = 'thank-you.html';
       });
     })();
   </script>
