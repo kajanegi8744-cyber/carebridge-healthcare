@@ -61,8 +61,7 @@
           <p>Fields marked with * are required.</p>
         </div>
 
-        <form id="appointment-form" class="contact-form"
-              action="appointment-confirmation.html" method="get">
+        <form id="appointment-form" class="contact-form">
 
           <div class="form-group">
             <label for="full-name">Full name *</label>
@@ -129,9 +128,9 @@
           </div>
 
           <p class="form-notice">
-            Practice website: this form demonstrates browser validation
-            and navigation only. It does not send or save an actual
-            appointment request.
+            This is a practice form. It checks your entries and
+            demonstrates navigation only. It does not book an actual
+            appointment or save your information.
           </p>
 
           <button type="submit" class="btn btn-primary"
@@ -158,35 +157,38 @@
       var dateField = document.getElementById('appointment-date');
       var error = document.getElementById('form-error');
 
-      var today = new Date();
+      // Calculate today's date in the visitor's local timezone.
+      var now = new Date();
       var localToday = new Date(
-        today.getTime() - today.getTimezoneOffset() * 60000
+        now.getTime() - now.getTimezoneOffset() * 60000
       ).toISOString().split('T')[0];
 
       dateField.min = localToday;
 
       form.addEventListener('submit', function (event) {
+        // Prevent a GET request from exposing form values in the URL.
+        event.preventDefault();
         error.textContent = '';
 
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
         if (dateField.value < localToday) {
-          event.preventDefault();
           error.textContent = 'Please select today or a future date.';
           dateField.focus();
           return;
         }
 
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          form.reportValidity();
-          return;
-        }
-
-        // Practice only: do not send names, emails or form values
-        // to the analytics data layer.
+        // Push only a generic event. Never send form values to analytics.
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'appointment_form_validated'
         });
+
+        // Practice flow only; no actual appointment is stored.
+        window.location.href = 'appointment-confirmation.html';
       });
     })();
   </script>
