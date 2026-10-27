@@ -8,8 +8,8 @@
    * CareBridge Healthcare
    * Website interaction tracking for GTM practice.
    *
-   * Do not send names, email addresses, phone numbers,
-   * messages, or medical information to analytics.
+   * Never send names, email addresses, phone numbers,
+   * form messages or medical information to analytics.
    */
 
   function trackEvent(eventName, extraData) {
@@ -18,13 +18,15 @@
     };
 
     if (extraData && typeof extraData === 'object') {
-      Object.keys(extraData).forEach(function (key) {
-        // Only permit explicitly approved, non-personal parameters.
+      [
+        'button_text',
+        'link_url',
+        'service_name',
+        'link_type'
+      ].forEach(function (key) {
         if (
-          key === 'button_text' ||
-          key === 'link_url' ||
-          key === 'service_name' ||
-          key === 'link_type'
+          Object.prototype.hasOwnProperty.call(extraData, key) &&
+          typeof extraData[key] === 'string'
         ) {
           eventData[key] = extraData[key];
         }
@@ -52,7 +54,13 @@
   }
 
   document.addEventListener('click', function (event) {
-    var element = event.target.closest(
+    var target = event.target;
+
+    if (!target || typeof target.closest !== 'function') {
+      return;
+    }
+
+    var element = target.closest(
       'a[data-track], button[data-track]'
     );
 
@@ -79,8 +87,7 @@
 
     var href = element.getAttribute('href') || '';
 
-    // Only record internal page paths or link type, not arbitrary
-    // URLs that might contain personal information.
+    // Record only a safe local path, not query parameters.
     if (
       href &&
       href.indexOf('tel:') !== 0 &&
@@ -95,11 +102,10 @@
   });
 
   /*
-   * Inform GTM when a page is ready.
-   * The HTML pages also contain their own specific dataLayer events.
+   * Page readiness event for practice and debugging.
+   * This event does not represent a conversion.
    */
   window.addEventListener('pageshow', function () {
     trackEvent('carebridge_page_ready');
   });
 })();
-
