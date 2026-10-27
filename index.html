@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>CareBridge Healthcare | Quality Care</title>
-  <meta name="description" content="Explore healthcare services and appointment information at CareBridge Healthcare.">
+  <title>CareBridge Healthcare | Healthcare Information</title>
+  <meta name="description" content="Explore healthcare information, service options and appointment form practice at CareBridge Healthcare.">
 
   <!-- Google Tag Manager -->
   <script>
@@ -24,21 +23,16 @@
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
-    <iframe
-      src="https://www.googletagmanager.com/ns.html?id=GTM-T838QF4X"
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden">
-    </iframe>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T838QF4X"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="index.html">CareBridge Healthcare</a>
-
       <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
+        <a href="index.html" aria-current="page">Home</a>
         <a href="services.html">Services</a>
         <a href="appointment.html">Appointment</a>
         <a href="contact.html">Contact</a>
@@ -53,17 +47,19 @@
           <p class="eyebrow">CARE THAT CONNECTS</p>
           <h1>Your Health Deserves Thoughtful Care</h1>
           <p>
-            Explore healthcare information, available services and
-            appointment options in one convenient place.
+            Explore healthcare information, service options and
+            appointment request steps in one convenient place.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="appointment.html"
+            <a class="btn btn-primary"
+               href="appointment.html"
                data-track="appointment_click">
               Request an Appointment
             </a>
 
-            <a class="btn btn-secondary" href="services.html"
+            <a class="btn btn-secondary"
+               href="services.html"
                data-track="services_click">
               Explore Services
             </a>
@@ -75,38 +71,47 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">OUR SERVICES</p>
+          <p class="eyebrow">EXPLORE</p>
           <h2>Healthcare Information and Support</h2>
-          <p>Explore the information available on our website.</p>
+          <p>Choose an option to explore the website.</p>
         </div>
 
         <div class="service-grid">
           <article class="service-card">
             <h3>General Consultation</h3>
-            <p>Learn about general consultation and appointment options.</p>
+            <p>
+              Explore general information about consultations
+              and appointment options.
+            </p>
             <a href="services.html"
                data-track="service_click"
                data-service="general_consultation">
-              View Details
+              View Service Details
             </a>
           </article>
 
           <article class="service-card">
             <h3>Preventive Care</h3>
-            <p>Explore general information about preventive healthcare.</p>
+            <p>
+              Read general information about preventive healthcare
+              and routine care discussions.
+            </p>
             <a href="services.html"
                data-track="service_click"
                data-service="preventive_care">
-              View Details
+              Explore Preventive Care
             </a>
           </article>
 
           <article class="service-card">
             <h3>Appointment Support</h3>
-            <p>Find information about requesting an appointment.</p>
+            <p>
+              Explore the appointment request form and its
+              practice confirmation flow.
+            </p>
             <a href="appointment.html"
                data-track="appointment_click">
-              Get Started
+              Open Appointment Form
             </a>
           </article>
         </div>
@@ -116,15 +121,46 @@
     <section class="section section-soft">
       <div class="container cta-box">
         <div>
-          <p class="eyebrow">NEXT STEP</p>
-          <h2>Explore Your Appointment Options</h2>
-          <p>Visit the appointment page to try the website's form.</p>
+          <p class="eyebrow">HAVE A QUESTION?</p>
+          <h2>Visit Our Contact Page</h2>
+          <p>
+            Use the practice contact form to explore validation
+            and confirmation page navigation.
+          </p>
         </div>
 
-        <a class="btn btn-primary" href="appointment.html"
-           data-track="appointment_click">
-          Visit Appointment Page
+        <a class="btn btn-primary"
+           href="contact.html"
+           data-track="contact_click">
+          Contact Us
         </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">WEBSITE PRACTICE PROJECT</p>
+          <h2>Explore the Complete Journey</h2>
+          <p>
+            Try a form, review its validation, and reach its
+            confirmation page. No real booking or enquiry is created.
+          </p>
+        </div>
+
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn btn-secondary"
+             href="appointment-confirmation.html"
+             data-track="appointment_confirmation_test">
+            Open Appointment Confirmation
+          </a>
+
+          <a class="btn btn-secondary"
+             href="thank-you.html"
+             data-track="thankyou_test">
+            Open Thank You Page
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -136,7 +172,6 @@
     </div>
   </footer>
 
-  <!-- Website tracking JavaScript will be added separately -->
   <script src="assets/site.js"></script>
 </body>
 </html>
