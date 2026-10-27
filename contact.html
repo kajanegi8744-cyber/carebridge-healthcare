@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | CareBridge Healthcare</title>
+  <meta name="description" content="Contact page and practice enquiry form for CareBridge Healthcare.">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T838QF4X');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T838QF4X"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">CareBridge Healthcare</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="appointment.html">Appointment</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <p class="eyebrow">GET IN TOUCH</p>
+          <h1>How Can We Help?</h1>
+          <p>
+            Use this practice form to explore how a website enquiry
+            form can validate information and open a confirmation page.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Send an Enquiry</h2>
+          <p>Fields marked with * are required.</p>
+        </div>
+
+        <form id="contact-form" class="contact-form"
+              action="thank-you.html" method="get">
+
+          <div class="form-group">
+            <label for="contact-name">Full name *</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              autocomplete="name"
+              minlength="2"
+              maxlength="80"
+              required
+              placeholder="Enter your name">
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email address *</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              autocomplete="email"
+              maxlength="120"
+              required
+              placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="enquiry-topic">Enquiry topic *</label>
+            <select id="enquiry-topic" name="topic" required>
+              <option value="">Select a topic</option>
+              <option value="general">General enquiry</option>
+              <option value="services">Service information</option>
+              <option value="appointments">Appointment information</option>
+              <option value="website">Website feedback</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message *</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              minlength="5"
+              maxlength="500"
+              rows="5"
+              required
+              placeholder="Enter a general enquiry. Do not include medical or sensitive personal information."></textarea>
+          </div>
+
+          <p class="form-notice">
+            This is a practice form. It validates your entries and
+            demonstrates navigation only. It does not send or store
+            an actual enquiry.
+          </p>
+
+          <button type="submit" class="btn btn-primary"
+                  data-track="contact_form_submit">
+            Submit Enquiry
+          </button>
+
+          <p id="contact-error" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 CareBridge Healthcare</p>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var error = document.getElementById('contact-error');
+
+      form.addEventListener('submit', function (event) {
+        error.textContent = '';
+
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          form.reportValidity();
+          return;
+        }
+
+        // Practice event only. Do not pass form values to analytics.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'contact_form_validated'
+        });
+      });
+    })();
+  </script>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
