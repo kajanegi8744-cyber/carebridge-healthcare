@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request an Appointment | CareBridge Healthcare</title>
+  <meta name="description" content="Explore the appointment request process at CareBridge Healthcare.">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T838QF4X');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T838QF4X"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">CareBridge Healthcare</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="appointment.html" aria-current="page">Appointment</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <p class="eyebrow">APPOINTMENT REQUEST</p>
+          <h1>Let's Plan Your Next Step</h1>
+          <p>
+            Complete this practice form to explore the appointment
+            request and confirmation process.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Appointment Request Form</h2>
+          <p>Fields marked with * are required.</p>
+        </div>
+
+        <form id="appointment-form" class="contact-form"
+              action="appointment-confirmation.html" method="get">
+
+          <div class="form-group">
+            <label for="full-name">Full name *</label>
+            <input
+              type="text"
+              id="full-name"
+              name="name"
+              autocomplete="name"
+              minlength="2"
+              maxlength="80"
+              required
+              placeholder="Enter your name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              maxlength="120"
+              required
+              placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="appointment-date">Preferred date *</label>
+            <input
+              type="date"
+              id="appointment-date"
+              name="date"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Select a service *</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option value="general_consultation">General Consultation</option>
+              <option value="preventive_care">Preventive Care</option>
+              <option value="wellness_information">Wellness Information</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="time-preference">Preferred time *</label>
+            <select id="time-preference" name="time" required>
+              <option value="">Choose a time</option>
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="evening">Evening</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="practice-note">Optional message</label>
+            <textarea
+              id="practice-note"
+              name="message"
+              maxlength="300"
+              rows="4"
+              placeholder="Enter a general message only. Do not include medical or sensitive personal information."></textarea>
+          </div>
+
+          <p class="form-notice">
+            Practice website: this form demonstrates browser validation
+            and navigation only. It does not send or save an actual
+            appointment request.
+          </p>
+
+          <button type="submit" class="btn btn-primary"
+                  data-track="appointment_form_submit">
+            Submit Appointment Request
+          </button>
+
+          <p id="form-error" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 CareBridge Healthcare</p>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('appointment-form');
+      var dateField = document.getElementById('appointment-date');
+      var error = document.getElementById('form-error');
+
+      var today = new Date();
+      var localToday = new Date(
+        today.getTime() - today.getTimezoneOffset() * 60000
+      ).toISOString().split('T')[0];
+
+      dateField.min = localToday;
+
+      form.addEventListener('submit', function (event) {
+        error.textContent = '';
+
+        if (dateField.value < localToday) {
+          event.preventDefault();
+          error.textContent = 'Please select today or a future date.';
+          dateField.focus();
+          return;
+        }
+
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          form.reportValidity();
+          return;
+        }
+
+        // Practice only: do not send names, emails or form values
+        // to the analytics data layer.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'appointment_form_validated'
+        });
+      });
+    })();
+  </script>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
