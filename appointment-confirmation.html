@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Request Confirmation | CareBridge Healthcare</title>
+  <meta name="description" content="Confirmation page for the CareBridge Healthcare appointment form practice flow.">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T838QF4X');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T838QF4X"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">CareBridge Healthcare</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="appointment.html">Appointment</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="confirmation-card">
+          <div class="confirmation-icon" aria-hidden="true">✓</div>
+          <p class="eyebrow">FORM SUBMISSION COMPLETE</p>
+          <h1>Thank You!</h1>
+          <p>
+            Your practice form passed the browser validation and
+            the confirmation page has opened successfully.
+          </p>
+          <p>
+            This is a website training flow. No real appointment
+            has been booked and no form data has been saved.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="index.html"
+               data-track="confirmation_home_click">
+              Back to Home
+            </a>
+            <a class="btn btn-secondary" href="services.html"
+               data-track="confirmation_services_click">
+              Explore Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 CareBridge Healthcare</p>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'appointment_confirmation_view'
+    });
+  </script>
+  <script src="assets/site.js"></script>
+</body>
+</html>
