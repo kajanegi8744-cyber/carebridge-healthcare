@@ -17,7 +17,7 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -47,8 +47,8 @@
           <p class="eyebrow">APPOINTMENT REQUEST</p>
           <h1>Let's Plan Your Next Step</h1>
           <p>
-            Complete this practice form to explore the appointment
-            request and confirmation process.
+            Complete this practice form to explore validation
+            and the confirmation page journey.
           </p>
         </div>
       </div>
@@ -62,39 +62,24 @@
         </div>
 
         <form id="appointment-form" class="contact-form">
-
           <div class="form-group">
             <label for="full-name">Full name *</label>
-            <input
-              type="text"
-              id="full-name"
-              name="name"
-              autocomplete="name"
-              minlength="2"
-              maxlength="80"
-              required
-              placeholder="Enter your name">
+            <input type="text" id="full-name" name="name"
+              autocomplete="name" minlength="2" maxlength="80"
+              required placeholder="Enter your name">
           </div>
 
           <div class="form-group">
             <label for="email">Email address *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              autocomplete="email"
-              maxlength="120"
-              required
-              placeholder="you@example.com">
+            <input type="email" id="email" name="email"
+              autocomplete="email" maxlength="120"
+              required placeholder="you@example.com">
           </div>
 
           <div class="form-group">
             <label for="appointment-date">Preferred date *</label>
-            <input
-              type="date"
-              id="appointment-date"
-              name="date"
-              required>
+            <input type="date" id="appointment-date"
+              name="date" required>
           </div>
 
           <div class="form-group">
@@ -119,22 +104,18 @@
 
           <div class="form-group">
             <label for="practice-note">Optional message</label>
-            <textarea
-              id="practice-note"
-              name="message"
-              maxlength="300"
-              rows="4"
-              placeholder="Enter a general message only. Do not include medical or sensitive personal information."></textarea>
+            <textarea id="practice-note" name="message"
+              maxlength="300" rows="4"
+              placeholder="General message only. Do not enter medical or sensitive information."></textarea>
           </div>
 
           <p class="form-notice">
-            This is a practice form. It checks your entries and
-            demonstrates navigation only. It does not book an actual
-            appointment or save your information.
+            Practice form only: information is validated in your browser.
+            No actual appointment is booked or saved.
           </p>
 
           <button type="submit" class="btn btn-primary"
-                  data-track="appointment_form_submit">
+            data-track="appointment_form_submit">
             Submit Appointment Request
           </button>
 
@@ -157,7 +138,6 @@
       var dateField = document.getElementById('appointment-date');
       var error = document.getElementById('form-error');
 
-      // Calculate today's date in the visitor's local timezone.
       var now = new Date();
       var localToday = new Date(
         now.getTime() - now.getTimezoneOffset() * 60000
@@ -166,7 +146,6 @@
       dateField.min = localToday;
 
       form.addEventListener('submit', function (event) {
-        // Prevent a GET request from exposing form values in the URL.
         event.preventDefault();
         error.textContent = '';
 
@@ -181,18 +160,17 @@
           return;
         }
 
-        // Push only a generic event. Never send form values to analytics.
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'appointment_form_validated'
         });
 
-        // Practice flow only; no actual appointment is stored.
+        // Practice flow only; no appointment is stored.
         window.location.href = 'appointment-confirmation.html';
       });
     })();
   </script>
 
-  <script src="assets/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>
